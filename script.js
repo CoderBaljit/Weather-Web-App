@@ -12,7 +12,6 @@ document.getElementById("searchButton").addEventListener("click", async () => {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    console.log(result);
     //   Temperature
     document.getElementById("temp").innerHTML = `${result.temp}°C`;
     document.getElementById("min_temp").innerHTML = result.min_temp + "°C";
@@ -54,13 +53,9 @@ document.getElementById("searchButton").addEventListener("click", async () => {
     let sunriseTime = unixTimeStampToAMPM(sunriseTimestamp);
     let sunsetTime = unixTimeStampToAMPM(sunsetTimestamp);
 
-    console.log("Sunrise:", sunriseTime);
-    console.log("Sunset:", sunsetTime);
-
     document.getElementById("feels_like").innerHTML = result.feels_like + "°C";
     document.getElementById("sunset").innerHTML = sunriseTime;
     document.getElementById("sunrise").innerHTML = sunsetTime;
   } catch (error) {
-    console.error(error);
   }
 });
