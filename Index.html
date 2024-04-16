@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Weather App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<style>
+  span {
+    padding: 0px 4px;
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Weather App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About this App</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              City
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Punjab</a></li>
+              <li><a class="dropdown-item" href="#">Delhi</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Bangalore</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">User Gudie</a>
+          </li>
+        </ul>
+        <div class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
+          <button class="btn btn-outline-success" type="submit" id="searchButton">Search</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="text-center">Hello weather </h1>
+    <p class="text-center">Check your city weather with one click its simple enter your city or country and then
+      search and see result <br>
+      But enter the right spell of our city name </p>
+      <div class="row justify-content-between align-items-center">
+        <div class="col d-flex  justify-content-center align-items-center mt-5">
+            <div class="card" style="width: 300px; min-height: auto;">
+                <img src="https://images.pexels.com/photos/912364/pexels-photo-912364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Weather of <span id="cityName"></span>
+                        <span id="countryName"></span>
+                    </h5>
+                    <p class="card-text"><img src="img/summer.png" alt="" style="width: 20px; margin-right:10px ;">Temprature Info</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-evenly">Temprature <span id="temp"></span>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-evenly">Min Temp <span
+                            id="min_temp"></span></li>
+                    <li class="list-group-item  d-flex justify-content-evenly">Max Temp <span id="max_temp"></span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="col d-flex justify-content-center align-items-center mt-5">
+            <div class="card" style="width: 300px; min-height: auto;">
+                <img src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg" class="card-img-top"
+                    alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Wind Condition <span id="cityName"></span>
+                        <span id="countryName"></span>
+                    </h5>
+                    <p class="card-text"><img src="img/wind.png" alt="" style="width: 20px; margin-right:10px ;">Wind's Condition</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item  d-flex justify-content-evenly">Wind Speed <span
+                            id="wind_speed"></span></li>
+                    <li class="list-group-item  d-flex justify-content-evenly">Wind degress <span
+                            id="wind_degrees"></span></li>
+                    <li class="list-group-item  d-flex justify-content-evenly">Feels Like <span
+                            id="feels_like"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col d-flex  justify-content-center align-items-center mt-5">
+            <div class="card" style="width: 300px; min-height: auto;">
+                <img src="https://images.pexels.com/photos/1447366/pexels-photo-1447366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Sun Info<span id="cityName"></span>
+                        <span id="countryName"></span>
+                    </h5>
+                    <p class="card-text"><img src="img/sun.png" alt="" style="width: 20px; margin-right:10px ;">Check the sun info</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item  d-flex justify-content-evenly">Sunset <span id="sunset"></span>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-evenly">Sunrise <span id="sunrise"></span>
+                    </li>
+                    <li class="list-group-item  d-flex justify-content-evenly">Humidity <span
+                            id="humidity"></span> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
